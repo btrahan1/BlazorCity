@@ -4,6 +4,10 @@ on:
   push:
     branches: [ main ]
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+
 jobs:
   deploy-to-github-pages:
     runs-on: ubuntu-latest
