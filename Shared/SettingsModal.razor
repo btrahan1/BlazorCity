@@ -26,14 +26,58 @@
         </div>
 
         <div class="setting-group">
-            <h4>Costs & Revenue</h4>
+            <h4>📊 Economics & Stats</h4>
+            <div class="tabs">
+                <button class="@(activeTab == "cost" ? "active" : "")" @onclick="@(() => activeTab = "cost")">Build Cost</button>
+                <button class="@(activeTab == "revenue" ? "active" : "")" @onclick="@(() => activeTab = "revenue")">Revenue</button>
+                <button class="@(activeTab == "upkeep" ? "active" : "")" @onclick="@(() => activeTab = "upkeep")">Upkeep</button>
+                <button class="@(activeTab == "pop" ? "active" : "")" @onclick="@(() => activeTab = "pop")">Population</button>
+            </div>
+
             <div class="scroll-box">
-                @foreach(var item in Settings.BuildingRevenue)
+                @if (activeTab == "cost")
                 {
-                    <div class="row">
-                        <span>@item.Key Revenue:</span>
-                        <input type="number" value="@item.Value" @onchange="@((ChangeEventArgs e) => UpdateRevenue(item.Key, e))" />
-                    </div>
+                    <p class="hint">One-time cost to build (§)</p>
+                    @foreach(var item in Settings.BuildingCosts)
+                    {
+                        <div class="row">
+                            <span>@item.Key</span>
+                            <input type="number" value="@item.Value" @onchange="@((ChangeEventArgs e) => UpdateDict(Settings.BuildingCosts, item.Key, e))" />
+                        </div>
+                    }
+                }
+                @if (activeTab == "revenue")
+                {
+                    <p class="hint">Monthly Income from Taxes based on connectivity (§/mo)</p>
+                    @foreach(var item in Settings.BuildingRevenue)
+                    {
+                        <div class="row">
+                            <span>@item.Key</span>
+                            <input type="number" value="@item.Value" @onchange="@((ChangeEventArgs e) => UpdateDict(Settings.BuildingRevenue, item.Key, e))" />
+                        </div>
+                    }
+                }
+                @if (activeTab == "upkeep")
+                {
+                    <p class="hint">Monthly Maintenance Cost (§/mo)</p>
+                    @foreach(var item in Settings.BuildingUpkeep)
+                    {
+                        <div class="row">
+                            <span>@item.Key</span>
+                            <input type="number" value="@item.Value" @onchange="@((ChangeEventArgs e) => UpdateDict(Settings.BuildingUpkeep, item.Key, e))" />
+                        </div>
+                    }
+                }
+                @if (activeTab == "pop")
+                {
+                    <p class="hint">Residents per building</p>
+                    @foreach(var item in Settings.BuildingPopulation)
+                    {
+                        <div class="row">
+                            <span>@item.Key</span>
+                            <input type="number" value="@item.Value" @onchange="@((ChangeEventArgs e) => UpdateDictInt(Settings.BuildingPopulation, item.Key, e))" />
+                        </div>
+                    }
                 }
             </div>
         </div>
@@ -54,40 +98,68 @@
         top: 0; left: 0; width: 100vw; height: 100vh;
         background: rgba(0,0,0,0.6);
         z-index: 2000;
+        display: flex;
         justify-content: center;
         align-items: center;
-        pointer-events: auto; /* Catch clicks */
+        pointer-events: auto;
     }
     .settings-content {
         background: white;
         padding: 20px;
         border-radius: 8px;
-        width: 400px;
-        max-width: 90vw;
+        width: 450px;
+        max-width: 95vw;
         max-height: 90vh;
         overflow-y: auto;
         box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        font-family: 'Segoe UI', sans-serif;
     }
-    .setting-group { margin-bottom: 15px; }
-    .setting-group label { display: block; font-weight: bold; }
-    .setting-group input { width: 100%; padding: 5px; }
-    .scroll-box { max-height: 150px; overflow-y: auto; border: 1px solid #eee; padding: 5px; }
-    .row { display: flex; justify-content: space-between; margin-bottom: 5px; }
-    .row input { width: 80px; }
-    .actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+    .setting-group { margin-bottom: 20px; }
+    .setting-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+    .setting-group input[type=range], .setting-group input[type=number] { width: 100%; padding: 5px; }
+    
+    .tabs { display: flex; gap: 5px; margin-bottom: 10px; border-bottom: 2px solid #eee; padding-bottom: 5px; overflow-x: auto; }
+    .tabs button {
+        background: none; border: none; padding: 5px 10px; cursor: pointer; font-weight: bold; color: #666; width: auto; white-space: nowrap;
+    }
+    .tabs button.active { color: #007bff; border-bottom: 2px solid #007bff; margin-bottom: -7px; }
+
+    .scroll-box { max-height: 250px; overflow-y: auto; border: 1px solid #eee; padding: 10px; background: #fafafa; border-radius: 4px; }
+    .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .row span { font-weight: 500; }
+    .row input { width: 100px; padding: 4px; border: 1px solid #ccc; border-radius: 3px; }
+    .hint { font-size: 0.85rem; color: #666; margin-bottom: 8px; font-style: italic; }
+    
+    .actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; flex-wrap: wrap; }
+    .btn { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+    .btn-primary { background: #007bff; color: white; }
+    .btn-secondary { background: #6c757d; color: white; }
+    .btn-danger { background: #dc3545; color: white; }
+    .btn-warning { background: #ffc107; color: black; }
 </style>
 
 @code {
     [Parameter] public bool IsVisible { get; set; }
     [Parameter] public EventCallback<bool> IsVisibleChanged { get; set; }
 
+    private string activeTab = "cost";
+
     private void NotifyChange() => Settings.NotifyChanged();
 
-    private void UpdateRevenue(string key, ChangeEventArgs e)
+    private void UpdateDict(Dictionary<string, decimal> dict, string key, ChangeEventArgs e)
     {
         if (decimal.TryParse(e.Value?.ToString(), out decimal val))
         {
-            Settings.BuildingRevenue[key] = val;
+            dict[key] = val;
+            NotifyChange();
+        }
+    }
+
+    private void UpdateDictInt(Dictionary<string, int> dict, string key, ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value?.ToString(), out int val))
+        {
+            dict[key] = val;
             NotifyChange();
         }
     }
