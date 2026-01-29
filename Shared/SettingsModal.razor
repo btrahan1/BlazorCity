@@ -1,0 +1,126 @@
+@inject BlazorCity.Services.GameSettings Settings
+@inject BlazorCity.Services.CityState CityState
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<div class="settings-modal" style="@(IsVisible ? "display:flex" : "display:none")">
+    <div class="settings-content">
+        <h2>City Configuration</h2>
+        
+        <div class="setting-group">
+            <label>Tick Speed (ms): @Settings.TickSpeedMs</label>
+            <input type="range" min="100" max="5000" step="100" @bind="Settings.TickSpeedMs" @bind:after="NotifyChange" />
+            <small>(Lower is faster)</small>
+        </div>
+
+        <div class="setting-group">
+            <label>Grid Size: @Settings.GridSize</label>
+            <input type="number" @bind="Settings.GridSize" />
+            <button class="btn btn-warning btn-sm" @onclick="ReloadPage">Apply & Restart</button>
+        </div>
+
+        <hr />
+
+        <div class="setting-group">
+            <label>Residential Tax/Sim: §@Settings.ResidentialTaxPerEsim</label>
+            <input type="number" step="1" @bind="Settings.ResidentialTaxPerEsim" @bind:after="NotifyChange" />
+        </div>
+
+        <div class="setting-group">
+            <h4>Costs & Revenue</h4>
+            <div class="scroll-box">
+                @foreach(var item in Settings.BuildingRevenue)
+                {
+                    <div class="row">
+                        <span>@item.Key Revenue:</span>
+                        <input type="number" value="@item.Value" @onchange="@((ChangeEventArgs e) => UpdateRevenue(item.Key, e))" />
+                    </div>
+                }
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="actions">
+            <button class="btn btn-primary" @onclick="SaveGame">💾 Save Game</button>
+             <button class="btn btn-danger" @onclick="ClearSave">🗑️ Wipe Save</button>
+            <button class="btn btn-secondary" @onclick="Close">Close</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .settings-modal {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.6);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        pointer-events: auto; /* Catch clicks */
+    }
+    .settings-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 400px;
+        max-width: 90vw;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .setting-group { margin-bottom: 15px; }
+    .setting-group label { display: block; font-weight: bold; }
+    .setting-group input { width: 100%; padding: 5px; }
+    .scroll-box { max-height: 150px; overflow-y: auto; border: 1px solid #eee; padding: 5px; }
+    .row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .row input { width: 80px; }
+    .actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+</style>
+
+@code {
+    [Parameter] public bool IsVisible { get; set; }
+    [Parameter] public EventCallback<bool> IsVisibleChanged { get; set; }
+
+    private void NotifyChange() => Settings.NotifyChanged();
+
+    private void UpdateRevenue(string key, ChangeEventArgs e)
+    {
+        if (decimal.TryParse(e.Value?.ToString(), out decimal val))
+        {
+            Settings.BuildingRevenue[key] = val;
+            NotifyChange();
+        }
+    }
+
+    private void Close() {
+        IsVisible = false;
+        IsVisibleChanged.InvokeAsync(false);
+    }
+
+    private void ReloadPage() {
+        JS.InvokeVoidAsync("location.reload");
+    }
+
+    // Persistence Logic (Simple JSON Dump)
+    private async Task SaveGame()
+    {
+        var data = new
+        {
+            Funds = CityState.Funds,
+            Pop = CityState.Population, // Just snapshot
+            Time = CityState.GameTime,
+            Buildings = CityState.PlacedBuildings,
+            Settings = Settings
+        };
+        
+        var json = System.Text.Json.JsonSerializer.Serialize(data);
+        await JS.InvokeVoidAsync("localStorage.setItem", "BlazorCitySave", json);
+        await JS.InvokeVoidAsync("alert", "Game Saved!");
+    }
+
+    private async Task ClearSave()
+    {
+        await JS.InvokeVoidAsync("localStorage.removeItem", "BlazorCitySave");
+        ReloadPage();
+    }
+}

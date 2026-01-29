@@ -7,6 +7,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddSingleton<BlazorCity.Services.GameSettings>();
 builder.Services.AddSingleton<BlazorCity.Services.CityState>();
 builder.Services.AddScoped<BlazorCity.Services.EconomyInterop>();
 

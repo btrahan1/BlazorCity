@@ -16,9 +16,11 @@
         </div>
         <div class="hud-item">👥 @CityState.Population.ToString("N0")</div>
         <div class="hud-item">📅 @CityState.GameTime.ToString("MMM d, yyyy")</div>
+        <button class="settings-btn" @onclick="(() => showSettings = true)">⚙️</button>
     </div>
 
     <BlazorCity.Pages.Toolbox />
+    <BlazorCity.Shared.SettingsModal @bind-IsVisible="showSettings" />
     @Body
 </div>
 
@@ -31,16 +33,29 @@
         transform: translateX(-50%);
         background: rgba(0, 0, 0, 0.8);
         color: white;
-        padding: 10px 20px;
+        padding: 5px 20px; /* Reduced vertical padding */
         border-radius: 20px;
         display: flex;
         gap: 20px;
+        align-items: center; /* Center items vertically */
         font-family: 'Segoe UI', sans-serif;
         font-weight: bold;
         font-size: 1.2rem;
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        pointer-events: auto; /* Allow tooltips if we add them */
+        pointer-events: auto; 
+        white-space: nowrap; /* Prevent wrap on mobile */
+        max-width: 95vw;
+        overflow-x: auto;
     }
+    .settings-btn {
+         background: transparent;
+         border: none;
+         font-size: 1.2rem;
+         cursor: pointer;
+         padding: 0 5px;
+         transition: transform 0.2s;
+    }
+    .settings-btn:hover { transform: rotate(90deg); }
     .hud-item {
         display: flex;
         align-items: center;
@@ -49,14 +64,63 @@
 </style>
 
 @code {
+    private bool showSettings = false;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             var dotNetRef = DotNetObjectReference.Create(EconomyInterop);
-            await JS.InvokeVoidAsync("CityEngine.init", "city-container", dotNetRef);
+            
+            // 1. Check for Save (PRE-INIT) to get Grid Size
+            BlazorCity.Services.CitySaveData loadedData = null;
+            int gridSize = 20;
+
+            var json = await JS.InvokeAsync<string>("localStorage.getItem", "BlazorCitySave");
+            if (!string.IsNullOrEmpty(json))
+            {
+                try 
+                {
+                    loadedData = System.Text.Json.JsonSerializer.Deserialize<BlazorCity.Services.CitySaveData>(json);
+                    if (loadedData?.Settings != null)
+                    {
+                        gridSize = loadedData.Settings.GridSize;
+                        Console.WriteLine($"Found save! Loading GridSize: {gridSize}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error checking save: " + ex.Message);
+                }
+            }
+
+            // 2. Initialize Engine (With correct Grid Size)
+            await JS.InvokeVoidAsync("CityEngine.init", "city-container", dotNetRef, gridSize);
             
             CityState.OnChange += StateHasChanged;
+
+            // 3. Restore Full State if we have it
+            if (loadedData != null)
+            {
+                try 
+                {
+                    // Restore C# State (Funds, Sim, Settings)
+                    CityState.LoadState(loadedData);
+                    
+                    // Restore Visuals
+                    if (CityState.PlacedBuildings != null)
+                    {
+                        foreach (var b in CityState.PlacedBuildings)
+                        {
+                            await JS.InvokeVoidAsync("CityEngine.placeBuilding", b.Name, b.X, b.Y, 0); 
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error restoring state: " + ex.Message);
+                }
+            }
         }
     }
 

@@ -29,13 +29,34 @@ namespace BlazorCity.Services
         public DateTime GameTime { get; private set; } = new DateTime(2026, 1, 1);
         private System.Timers.Timer _gameTimer;
         
+        // Dependencies
+        private readonly GameSettings _settings;
+        
         // Events
         public event Action OnChange;
 
-        public CityState()
+        public CityState(GameSettings settings)
         {
-            // Tick every 3 seconds (1 Game Day)
-            _gameTimer = new System.Timers.Timer(3000);
+            _settings = settings;
+            _settings.OnChange += OnSettingsChanged;
+
+            // Tick Timer
+            SetupTimer();
+        }
+
+        private void OnSettingsChanged()
+        {
+            if (_gameTimer.Interval != _settings.TickSpeedMs)
+            {
+                _gameTimer.Interval = _settings.TickSpeedMs;
+            }
+            RecalculateDemographics();
+            NotifyStateChanged();
+        }
+
+        private void SetupTimer()
+        {
+            _gameTimer = new System.Timers.Timer(_settings.TickSpeedMs);
             _gameTimer.Elapsed += (s, e) => Tick();
             _gameTimer.AutoReset = true;
             _gameTimer.Start();
@@ -108,31 +129,23 @@ namespace BlazorCity.Services
 
             foreach(var b in PlacedBuildings)
             {
-                // Upkeep is paid regardless of connectivity!
-                if (b.Name.Contains("Road")) upkeep += 1;
-                if (b.Name.Contains("Police")) upkeep += 100;
-                if (b.Name.Contains("Medical") || b.Name.Contains("Medic")) upkeep += 150;
-                if (b.Name.Contains("Fire")) upkeep += 100;
-                if (b.Name.Contains("Park")) upkeep += 5;
+                string name = b.Name;
+                
+                // Expenses (Always paid)
+                upkeep += _settings.GetUpkeep(name);
 
-                // Income/Pop only if connected
+                // Income/Pop (Only if connected)
                 if (!b.IsConnected) continue;
 
-                // Residential
-                if (b.Name.Contains("Home")) pop += 4;
-                if (b.Name.Contains("Apartment")) pop += 40;
+                // Population
+                pop += _settings.GetPopulation(name);
 
-                // Commercial
-                if (b.Name.Contains("Food") || b.Name.Contains("Restaurant")) commercialTax += 50;
-                if (b.Name.Contains("Shop") || b.Name.Contains("Store")) commercialTax += 80;
-                if (b.Name.Contains("Gas")) commercialTax += 100;
-                if (b.Name.Contains("Arcade")) commercialTax += 150;
-                if (b.Name.Contains("Bank")) commercialTax += 300;
-                if (b.Name.Contains("Mall")) commercialTax += 1000;
+                // Revenue
+                commercialTax += _settings.GetRevenue(name);
             }
 
             Population = pop;
-            decimal residentialTax = Population * 10 * TaxRate; 
+            decimal residentialTax = Population * _settings.ResidentialTaxPerEsim * TaxRate; 
             decimal totalIncome = residentialTax + commercialTax;
 
             NetIncome = totalIncome - upkeep;
@@ -158,6 +171,40 @@ namespace BlazorCity.Services
             else DeductFunds(Math.Abs(NetIncome));
         }
 
+        public void LoadState(CitySaveData data)
+        {
+            Funds = data.Funds;
+            Population = data.Population;
+            GameTime = data.Time;
+            PlacedBuildings = data.Buildings ?? new List<BuildingInstance>();
+            _roadTiles.Clear();
+            foreach(var b in PlacedBuildings)
+            {
+                if (b.Name.Contains("Road")) _roadTiles.Add((b.X, b.Y));
+            }
+            if (data.Settings != null)
+            {
+                _settings.GridSize = data.Settings.GridSize;
+                _settings.TickSpeedMs = data.Settings.TickSpeedMs;
+                _settings.ResidentialTaxPerEsim = data.Settings.ResidentialTaxPerEsim;
+                _settings.BuildingCosts = data.Settings.BuildingCosts;
+                _settings.BuildingRevenue = data.Settings.BuildingRevenue;
+                _settings.NotifyChanged();
+            }
+
+            RecalculateConnectivity();
+            NotifyStateChanged();
+        }
+
         private void NotifyStateChanged() => OnChange?.Invoke();
+    }
+
+    public class CitySaveData
+    {
+        public decimal Funds { get; set; }
+        public int Population { get; set; }
+        public DateTime Time { get; set; }
+        public List<CityState.BuildingInstance> Buildings { get; set; }
+        public GameSettings Settings { get; set; }
     }
 }
