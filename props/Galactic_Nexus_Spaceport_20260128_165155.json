@@ -1,0 +1,194 @@
+{
+"Name": "Galactic_Nexus_Spaceport",
+"Type": "Procedural",
+"Parts": [
+{
+"Id": "main_plaza",
+"ParentId": null,
+"Shape": "Cylinder",
+"Position": [0, -0.25, 0],
+"Rotation": [0, 0, 0],
+"Scale": [100, 0.5, 100],
+"ColorHex": "#1A1A1D",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "tower_stem",
+"ParentId": "main_plaza",
+"Shape": "Cylinder",
+"Position": [0, 15, 0],
+"Rotation": [0, 0, 0],
+"Scale": [4, 30, 4],
+"ColorHex": "#4E4E50",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "tower_observation_deck",
+"ParentId": "tower_stem",
+"Shape": "Sphere",
+"Position": [0, 30, 0],
+"Rotation": [0, 0, 0],
+"Scale": [12, 6, 12],
+"ColorHex": "#00A8E8",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "tower_antenna",
+"ParentId": "tower_observation_deck",
+"Shape": "Cylinder",
+"Position": [0, 35, 0],
+"Rotation": [0, 0, 0],
+"Scale": [0.5, 10, 0.5],
+"ColorHex": "#FFFFFF",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "landing_pad_north",
+"ParentId": "main_plaza",
+"Shape": "Cylinder",
+"Position": [0, 0.1, 35],
+"Rotation": [0, 0, 0],
+"Scale": [20, 0.4, 20],
+"ColorHex": "#333333",
+"Material": "Rubber",
+"Operation": "Union"
+},
+{
+"Id": "pad_glow_north",
+"ParentId": "landing_pad_north",
+"Shape": "Torus",
+"Position": [0, 0.3, 35],
+"Rotation": [0, 0, 0],
+"Scale": [18, 0.2, 18],
+"ColorHex": "#00FF41",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "landing_pad_east",
+"ParentId": "main_plaza",
+"Shape": "Cylinder",
+"Position": [35, 0.1, 0],
+"Rotation": [0, 0, 0],
+"Scale": [20, 0.4, 20],
+"ColorHex": "#333333",
+"Material": "Rubber",
+"Operation": "Union"
+},
+{
+"Id": "pad_glow_east",
+"ParentId": "landing_pad_east",
+"Shape": "Torus",
+"Position": [35, 0.3, 0],
+"Rotation": [0, 0, 0],
+"Scale": [18, 0.2, 18],
+"ColorHex": "#00FF41",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "landing_pad_west",
+"ParentId": "main_plaza",
+"Shape": "Cylinder",
+"Position": [-35, 0.1, 0],
+"Rotation": [0, 0, 0],
+"Scale": [20, 0.4, 20],
+"ColorHex": "#333333",
+"Material": "Rubber",
+"Operation": "Union"
+},
+{
+"Id": "pad_glow_west",
+"ParentId": "landing_pad_west",
+"Shape": "Torus",
+"Position": [-35, 0.3, 0],
+"Rotation": [0, 0, 0],
+"Scale": [18, 0.2, 18],
+"ColorHex": "#00FF41",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "hangar_alpha",
+"ParentId": "main_plaza",
+"Shape": "Box",
+"Position": [0, 5, -35],
+"Rotation": [0, 0, 0],
+"Scale": [30, 10, 20],
+"ColorHex": "#696969",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "hangar_door",
+"ParentId": "hangar_alpha",
+"Shape": "Box",
+"Position": [0, 5, -25.1],
+"Rotation": [0, 0, 0],
+"Scale": [24, 8, 0.5],
+"ColorHex": "#111111",
+"Material": "Metal",
+"Operation": "Subtract"
+},
+{
+"Id": "fuel_silo_01",
+"ParentId": "main_plaza",
+"Shape": "Cylinder",
+"Position": [25, 6, -35],
+"Rotation": [0, 0, 0],
+"Scale": [6, 12, 6],
+"ColorHex": "#C0C0C0",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "fuel_silo_02",
+"ParentId": "main_plaza",
+"Shape": "Cylinder",
+"Position": [-25, 6, -35],
+"Rotation": [0, 0, 0],
+"Scale": [6, 12, 6],
+"ColorHex": "#C0C0C0",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "perimeter_beacon_01",
+"ParentId": "main_plaza",
+"Shape": "Sphere",
+"Position": [45, 1, 45],
+"Rotation": [0, 0, 0],
+"Scale": [1, 1, 1],
+"ColorHex": "#FF0000",
+"Material": "Glow",
+"Operation": "Union"
+}
+],
+"Timeline": [
+{
+"Time": 0.0,
+"Action": "Rotate",
+"TargetId": "tower_antenna",
+"Value": [0, 360, 0],
+"Duration": 5.0
+},
+{
+"Time": 0.0,
+"Action": "Color",
+"TargetId": "pad_glow_north",
+"Value": [0, 1, 0.5],
+"Duration": 2.0
+},
+{
+"Time": 2.0,
+"Action": "Color",
+"TargetId": "pad_glow_north",
+"Value": [0, 1, 0.2],
+"Duration": 2.0
+}
+]
+}

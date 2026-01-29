@@ -1,0 +1,163 @@
+{
+"Name": "ModernFirestation",
+"Type": "Procedural",
+"Parts": [
+{
+"Id": "foundation",
+"Shape": "Box",
+"Position": [0, -0.1, 0],
+"Rotation": [0, 0, 0],
+"Scale": [15, 0.2, 12],
+"ColorHex": "#333333",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "main_bay",
+"Shape": "Box",
+"Position": [0, 2.5, 0],
+"Rotation": [0, 0, 0],
+"Scale": [10, 5, 8],
+"ColorHex": "#B22222",
+"Material": "Plastic",
+"Operation": "Union"
+},
+{
+"Id": "roof_slab",
+"Shape": "Box",
+"Position": [0, 5.1, 0],
+"Rotation": [0, 0, 0],
+"Scale": [10.5, 0.4, 8.5],
+"ColorHex": "#444444",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "watchtower",
+"Shape": "Box",
+"Position": [6.5, 4.5, 2],
+"Rotation": [0, 0, 0],
+"Scale": [2.5, 9, 2.5],
+"ColorHex": "#8B0000",
+"Material": "Plastic",
+"Operation": "Union"
+},
+{
+"Id": "tower_cap",
+"Shape": "Box",
+"Position": [6.5, 9, 2],
+"Rotation": [0, 0, 0],
+"Scale": [3, 0.5, 3],
+"ColorHex": "#222222",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "door_bay_1",
+"ParentId": "main_bay",
+"Shape": "Box",
+"Position": [3, 2, 4],
+"Rotation": [0, 0, 0],
+"Scale": [2.5, 3.8, 0.2],
+"ColorHex": "#FFFFFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "door_bay_2",
+"ParentId": "main_bay",
+"Shape": "Box",
+"Position": [0, 2, 4],
+"Rotation": [0, 0, 0],
+"Scale": [2.5, 3.8, 0.2],
+"ColorHex": "#FFFFFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "door_bay_3",
+"ParentId": "main_bay",
+"Shape": "Box",
+"Position": [-3, 2, 4],
+"Rotation": [0, 0, 0],
+"Scale": [2.5, 3.8, 0.2],
+"ColorHex": "#FFFFFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "alarm_light",
+"Shape": "Sphere",
+"Position": [0, 5.5, 4.2],
+"Rotation": [0, 0, 0],
+"Scale": [0.4, 0.4, 0.4],
+"ColorHex": "#FF0000",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "window_tower_1",
+"Shape": "Box",
+"Position": [6.5, 8, 3.3],
+"Rotation": [0, 0, 0],
+"Scale": [1.5, 1, 0.1],
+"ColorHex": "#88CCFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "sign_backing",
+"Shape": "Box",
+"Position": [0, 4.2, 4.1],
+"Rotation": [0, 0, 0],
+"Scale": [4, 0.8, 0.1],
+"ColorHex": "#FFD700",
+"Material": "Metal",
+"Operation": "Union"
+}
+],
+"Timeline": [
+{
+"Time": 0.0,
+"Action": "Move",
+"TargetId": "door_bay_1",
+"Value": [3, 2, 4],
+"Duration": 0.0
+},
+{
+"Time": 1.0,
+"Action": "Move",
+"TargetId": "door_bay_1",
+"Value": [3, 5.5, 4],
+"Duration": 2.0
+},
+{
+"Time": 1.5,
+"Action": "Move",
+"TargetId": "door_bay_2",
+"Value": [0, 5.5, 4],
+"Duration": 2.0
+},
+{
+"Time": 2.0,
+"Action": "Move",
+"TargetId": "door_bay_3",
+"Value": [-3, 5.5, 4],
+"Duration": 2.0
+},
+{
+"Time": 0.5,
+"Action": "Color",
+"TargetId": "alarm_light",
+"Value": [1, 0, 0],
+"Duration": 0.5
+},
+{
+"Time": 1.0,
+"Action": "Color",
+"TargetId": "alarm_light",
+"Value": [0.2, 0, 0],
+"Duration": 0.5
+}
+]
+}

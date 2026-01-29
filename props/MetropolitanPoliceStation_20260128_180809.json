@@ -1,0 +1,190 @@
+{
+"Name": "MetropolitanPoliceStation",
+"Type": "Procedural",
+"Parts": [
+{
+"Id": "foundation",
+"ParentId": null,
+"Shape": "Box",
+"Position": [0, 0.25, 0],
+"Rotation": [0, 0, 0],
+"Scale": [15, 0.5, 12],
+"ColorHex": "#333333",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "main_block_1",
+"ParentId": "foundation",
+"Shape": "Box",
+"Position": [0, 3.25, 0],
+"Rotation": [0, 0, 0],
+"Scale": [14, 6, 10],
+"ColorHex": "#CCCCCC",
+"Material": "Plastic",
+"Operation": "Union"
+},
+{
+"Id": "main_block_2",
+"ParentId": "main_block_1",
+"Shape": "Box",
+"Position": [0, 5, 0],
+"Rotation": [0, 0, 0],
+"Scale": [10, 4, 8],
+"ColorHex": "#AAAAAA",
+"Material": "Plastic",
+"Operation": "Union"
+},
+{
+"Id": "entrance_cutout",
+"ParentId": "main_block_1",
+"Shape": "Box",
+"Position": [0, -1, 5],
+"Rotation": [0, 0, 0],
+"Scale": [4, 4, 1],
+"ColorHex": "#000000",
+"Material": "Glass",
+"Operation": "Subtract"
+},
+{
+"Id": "glass_doors",
+"ParentId": "main_block_1",
+"Shape": "Box",
+"Position": [0, -1, 4.9],
+"Rotation": [0, 0, 0],
+"Scale": [3.8, 3.8, 0.1],
+"ColorHex": "#88CCFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "police_sign_backing",
+"ParentId": "main_block_1",
+"Shape": "Box",
+"Position": [0, 2.5, 5.1],
+"Rotation": [0, 0, 0],
+"Scale": [6, 1.2, 0.3],
+"ColorHex": "#000080",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "police_text_glow",
+"ParentId": "police_sign_backing",
+"Shape": "Box",
+"Position": [0, 0, 0.1],
+"Rotation": [0, 0, 0],
+"Scale": [5.5, 0.8, 0.1],
+"ColorHex": "#FFFFFF",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "window_row_left",
+"ParentId": "main_block_1",
+"Shape": "Box",
+"Position": [5, 0, 5],
+"Rotation": [0, 0, 0],
+"Scale": [2, 3, 0.2],
+"ColorHex": "#222222",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "window_row_right",
+"ParentId": "main_block_1",
+"Shape": "Box",
+"Position": [-5, 0, 5],
+"Rotation": [0, 0, 0],
+"Scale": [2, 3, 0.2],
+"ColorHex": "#222222",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "comm_tower_base",
+"ParentId": "main_block_2",
+"Shape": "Cylinder",
+"Position": [3, 2.5, -2],
+"Rotation": [0, 0, 0],
+"Scale": [0.5, 2, 0.5],
+"ColorHex": "#555555",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "comm_antenna",
+"ParentId": "comm_tower_base",
+"Shape": "Cylinder",
+"Position": [0, 2, 0],
+"Rotation": [0, 0, 0],
+"Scale": [0.1, 4, 0.1],
+"ColorHex": "#999999",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "emergency_light_blue",
+"ParentId": "main_block_1",
+"Shape": "Sphere",
+"Position": [2, 3.5, 5],
+"Rotation": [0, 0, 0],
+"Scale": [0.4, 0.4, 0.4],
+"ColorHex": "#0000FF",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "emergency_light_red",
+"ParentId": "main_block_1",
+"Shape": "Sphere",
+"Position": [-2, 3.5, 5],
+"Rotation": [0, 0, 0],
+"Scale": [0.4, 0.4, 0.4],
+"ColorHex": "#FF0000",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "roof_hvac",
+"ParentId": "main_block_2",
+"Shape": "Box",
+"Position": [-2, 2.2, 1],
+"Rotation": [0, 45, 0],
+"Scale": [1.5, 1, 1.5],
+"ColorHex": "#777777",
+"Material": "Metal",
+"Operation": "Union"
+}
+],
+"Timeline": [
+{
+"Time": 0.0,
+"Action": "Color",
+"TargetId": "emergency_light_blue",
+"Value": [0, 0, 255],
+"Duration": 0.5
+},
+{
+"Time": 0.5,
+"Action": "Color",
+"TargetId": "emergency_light_blue",
+"Value": [0, 0, 50],
+"Duration": 0.5
+},
+{
+"Time": 0.0,
+"Action": "Color",
+"TargetId": "emergency_light_red",
+"Value": [50, 0, 0],
+"Duration": 0.5
+},
+{
+"Time": 0.5,
+"Action": "Color",
+"TargetId": "emergency_light_red",
+"Value": [255, 0, 0],
+"Duration": 0.5
+}
+]
+}

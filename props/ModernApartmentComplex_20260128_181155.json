@@ -1,0 +1,65 @@
+{
+    "Name": "Modern Apartment Complex",
+    "Parts": [
+        {
+            "Shape": "Box",
+            "Scale": [
+                5,
+                12,
+                5
+            ],
+            "Position": [
+                -2,
+                6,
+                -2
+            ],
+            "ColorHex": 15658734,
+            "Material": "Concrete"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                5,
+                8,
+                5
+            ],
+            "Position": [
+                2,
+                4,
+                2
+            ],
+            "ColorHex": 3394611,
+            "Material": "Brick"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                2,
+                12,
+                0.2
+            ],
+            "Position": [
+                -2,
+                6,
+                0.6
+            ],
+            "ColorHex": 3355647,
+            "Material": "Glass"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                6,
+                1,
+                6
+            ],
+            "Position": [
+                -2,
+                12.5,
+                -2
+            ],
+            "ColorHex": 3355443,
+            "Material": "Roof"
+        }
+    ]
+}

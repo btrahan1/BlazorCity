@@ -1,0 +1,182 @@
+{
+  "Name": "Modern_Atrium_Mall",
+  "Type": "Procedural",
+  "Parts": [
+    {
+      "Id": "ground_floor",
+      "Shape": "Box",
+      "Position": [0, -0.5, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [100, 1, 100],
+      "ColorHex": "#E0E0E0",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "main_atrium_cutout",
+      "Shape": "Cylinder",
+      "Position": [0, 10, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [40, 22, 40],
+      "ColorHex": "#FFFFFF",
+      "Material": "Plastic",
+      "Operation": "Subtract"
+    },
+    {
+      "Id": "second_floor_slab",
+      "Shape": "Box",
+      "Position": [0, 10, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [100, 1, 100],
+      "ColorHex": "#FFFFFF",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "exterior_wall_north",
+      "Shape": "Box",
+      "Position": [0, 15, -50],
+      "Rotation": [0, 0, 0],
+      "Scale": [100, 30, 1],
+      "ColorHex": "#F5F5F5",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "exterior_wall_south",
+      "Shape": "Box",
+      "Position": [0, 15, 50],
+      "Rotation": [0, 0, 0],
+      "Scale": [100, 30, 1],
+      "ColorHex": "#F5F5F5",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "exterior_wall_west",
+      "Shape": "Box",
+      "Position": [50, 15, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [1, 30, 100],
+      "ColorHex": "#F5F5F5",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "exterior_wall_east",
+      "Shape": "Box",
+      "Position": [-50, 15, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [1, 30, 100],
+      "ColorHex": "#F5F5F5",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "central_fountain_base",
+      "Shape": "Cylinder",
+      "Position": [0, 0.5, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [12, 1, 12],
+      "ColorHex": "#2C3E50",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "fountain_water",
+      "Shape": "Cylinder",
+      "Position": [0, 1.2, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [10, 0.5, 10],
+      "ColorHex": "#00FFFF",
+      "Material": "Glow",
+      "Operation": "Union"
+    },
+    {
+      "Id": "escalator_up_rail",
+      "Shape": "Box",
+      "Position": [15, 5, 10],
+      "Rotation": [30, 0, 0],
+      "Scale": [4, 0.5, 24],
+      "ColorHex": "#333333",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "shop_unit_01",
+      "Shape": "Box",
+      "Position": [40, 5, 30],
+      "Rotation": [0, 0, 0],
+      "Scale": [15, 10, 20],
+      "ColorHex": "#E74C3C",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "shop_unit_02",
+      "Shape": "Box",
+      "Position": [-40, 5, 30],
+      "Rotation": [0, 0, 0],
+      "Scale": [15, 10, 20],
+      "ColorHex": "#3498DB",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "skylight_dome",
+      "Shape": "Sphere",
+      "Position": [0, 30, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [45, 10, 45],
+      "ColorHex": "#A9CCE3",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "skylight_frame",
+      "Shape": "Torus",
+      "Position": [0, 30, 0],
+      "Rotation": [90, 0, 0],
+      "Scale": [45, 45, 1],
+      "ColorHex": "#222222",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "structural_column_a",
+      "Shape": "Cylinder",
+      "Position": [25, 15, 25],
+      "Rotation": [0, 0, 0],
+      "Scale": [2, 30, 2],
+      "ColorHex": "#FFFFFF",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "structural_column_b",
+      "Shape": "Cylinder",
+      "Position": [-25, 15, 25],
+      "Rotation": [0, 0, 0],
+      "Scale": [2, 30, 2],
+      "ColorHex": "#FFFFFF",
+      "Material": "Plastic",
+      "Operation": "Union"
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": 0.0,
+      "Action": "Color",
+      "TargetId": "fountain_water",
+      "Value": [0, 1, 1],
+      "Duration": 2.0
+    },
+    {
+      "Time": 2.0,
+      "Action": "Color",
+      "TargetId": "fountain_water",
+      "Value": [0.5, 0.8, 1],
+      "Duration": 2.0
+    }
+  ]
+}

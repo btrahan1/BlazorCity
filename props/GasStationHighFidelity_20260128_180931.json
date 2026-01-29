@@ -1,0 +1,164 @@
+{
+  "Name": "GasStationHighFidelity",
+  "Type": "Procedural",
+  "Parts": [
+    {
+      "Id": "asphalt_ground",
+      "Shape": "Box",
+      "Position": [0, -0.1, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [50, 0.2, 50],
+      "ColorHex": "#222222",
+      "Material": "Rubber",
+      "Operation": "Union"
+    },
+    {
+      "Id": "canopy_roof",
+      "Shape": "Box",
+      "Position": [0, 6, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [22, 0.8, 12],
+      "ColorHex": "#FFFFFF",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "canopy_trim",
+      "Shape": "Box",
+      "ParentId": "canopy_roof",
+      "Position": [0, 6, 0.1],
+      "Rotation": [0, 0, 0],
+      "Scale": [22.2, 0.4, 12.2],
+      "ColorHex": "#EE1111",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "pillar_left",
+      "Shape": "Cylinder",
+      "Position": [8, 3, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.6, 6, 0.6],
+      "ColorHex": "#CCCCCC",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "pillar_right",
+      "Shape": "Cylinder",
+      "Position": [-8, 3, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.6, 6, 0.6],
+      "ColorHex": "#CCCCCC",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "pump_island_base",
+      "Shape": "Box",
+      "Position": [0, 0.2, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [16, 0.4, 4],
+      "ColorHex": "#AAAAAA",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "gas_pump_1",
+      "Shape": "Box",
+      "Position": [4, 1.4, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [1.2, 2.2, 0.8],
+      "ColorHex": "#FFFFFF",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "gas_pump_1_screen",
+      "Shape": "Box",
+      "ParentId": "gas_pump_1",
+      "Position": [4, 1.8, 0.45],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.8, 0.6, 0.1],
+      "ColorHex": "#00FF00",
+      "Material": "Glow",
+      "Operation": "Union"
+    },
+    {
+      "Id": "gas_pump_2",
+      "Shape": "Box",
+      "Position": [-4, 1.4, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [1.2, 2.2, 0.8],
+      "ColorHex": "#FFFFFF",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "convenience_store_main",
+      "Shape": "Box",
+      "Position": [0, 2.5, -15],
+      "Rotation": [0, 0, 0],
+      "Scale": [18, 5, 10],
+      "ColorHex": "#F5F5F5",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "store_window_front",
+      "Shape": "Box",
+      "Position": [4, 2.5, -10.1],
+      "Rotation": [0, 0, 0],
+      "Scale": [6, 3, 0.1],
+      "ColorHex": "#88CCFF",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "store_door",
+      "Shape": "Box",
+      "Position": [-3, 2, -10.1],
+      "Rotation": [0, 0, 0],
+      "Scale": [2, 4, 0.1],
+      "ColorHex": "#333333",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "pylon_pole",
+      "Shape": "Cylinder",
+      "Position": [18, 5, 12],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.4, 10, 0.4],
+      "ColorHex": "#444444",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "pylon_sign_board",
+      "Shape": "Box",
+      "Position": [18, 9, 12],
+      "Rotation": [0, 0, 0],
+      "Scale": [4, 3, 0.6],
+      "ColorHex": "#EE1111",
+      "Material": "Plastic",
+      "Operation": "Union"
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": 0.0,
+      "Action": "Color",
+      "TargetId": "gas_pump_1_screen",
+      "Value": [0, 1, 0],
+      "Duration": 2.0
+    },
+    {
+      "Time": 2.0,
+      "Action": "Color",
+      "TargetId": "gas_pump_1_screen",
+      "Value": [1, 1, 1],
+      "Duration": 2.0
+    }
+  ]
+}

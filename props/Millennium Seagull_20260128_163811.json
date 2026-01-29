@@ -1,0 +1,127 @@
+{
+  "Name": "Millennium Seagull",
+  "Type": "Procedural",
+  "Parts": [
+    {
+      "Id": "main_saucer",
+      "Shape": "Cylinder",
+      "Position": [0, 0, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [4.0, 0.6, 4.0],
+      "ColorHex": "#D3D3D3",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "mandible_left",
+      "ParentId": "main_saucer",
+      "Shape": "Box",
+      "Position": [1.2, 0, 2.5],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.8, 0.4, 2.5],
+      "ColorHex": "#BCBCBC",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "mandible_right",
+      "ParentId": "main_saucer",
+      "Shape": "Box",
+      "Position": [-1.2, 0, 2.5],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.8, 0.4, 2.5],
+      "ColorHex": "#BCBCBC",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "cockpit_arm",
+      "ParentId": "main_saucer",
+      "Shape": "Cylinder",
+      "Position": [-2.2, 0, 0.8],
+      "Rotation": [90, 0, 0],
+      "Scale": [0.5, 1.2, 0.5],
+      "ColorHex": "#A9A9A9",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "cockpit_pod",
+      "ParentId": "cockpit_arm",
+      "Shape": "Cone",
+      "Position": [0, 1.0, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.7, 0.8, 0.7],
+      "ColorHex": "#2F4F4F",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "engine_vent",
+      "ParentId": "main_saucer",
+      "Shape": "Box",
+      "Position": [0, 0, -1.9],
+      "Rotation": [0, 0, 0],
+      "Scale": [3.2, 0.2, 0.2],
+      "ColorHex": "#00F0FF",
+      "Material": "Glow",
+      "Operation": "Union"
+    },
+    {
+      "Id": "radar_dish",
+      "ParentId": "main_saucer",
+      "Shape": "Cylinder",
+      "Position": [1.4, 0.4, 0.5],
+      "Rotation": [-30, 0, 0],
+      "Scale": [0.6, 0.05, 0.6],
+      "ColorHex": "#808080",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "top_turret",
+      "ParentId": "main_saucer",
+      "Shape": "Sphere",
+      "Position": [0, 0.35, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.5, 0.5, 0.5],
+      "ColorHex": "#696969",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "turret_barrels",
+      "ParentId": "top_turret",
+      "Shape": "Box",
+      "Position": [0, 0, 0.4],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.1, 0.05, 0.8],
+      "ColorHex": "#333333",
+      "Material": "Metal",
+      "Operation": "Union"
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": 0.0,
+      "Action": "Move",
+      "TargetId": "main_saucer",
+      "Value": [0, 2, 10],
+      "Duration": 0.0
+    },
+    {
+      "Time": 1.0,
+      "Action": "Move",
+      "TargetId": "main_saucer",
+      "Value": [0, 0, 0],
+      "Duration": 4.0
+    },
+    {
+      "Time": 2.0,
+      "Action": "Rotate",
+      "TargetId": "main_saucer",
+      "Value": [5, 0, -10],
+      "Duration": 2.0
+    }
+  ]
+}

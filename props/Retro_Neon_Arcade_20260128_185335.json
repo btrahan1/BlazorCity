@@ -1,0 +1,166 @@
+{
+  "Name": "Retro_Neon_Arcade",
+  "Type": "Procedural",
+  "Parts": [
+    {
+      "Id": "floor",
+      "Shape": "Box",
+      "Position": [0, -0.1, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [20, 0.2, 20],
+      "ColorHex": "#121212",
+      "Material": "Rubber",
+      "Operation": "Union"
+    },
+    {
+      "Id": "back_wall",
+      "Shape": "Box",
+      "Position": [0, 5, -10],
+      "Rotation": [0, 0, 0],
+      "Scale": [20, 10, 0.5],
+      "ColorHex": "#1A1A1A",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "neon_strip_top",
+      "Shape": "Box",
+      "Position": [0, 9, -9.7],
+      "Rotation": [0, 0, 0],
+      "Scale": [18, 0.2, 0.2],
+      "ColorHex": "#FF00FF",
+      "Material": "Glow",
+      "Operation": "Union"
+    },
+    {
+      "Id": "cab1_base",
+      "Shape": "Box",
+      "Position": [6, 1.5, -8],
+      "Rotation": [0, 0, 0],
+      "Scale": [2, 3, 2],
+      "ColorHex": "#222222",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "cab1_screen",
+      "Shape": "Box",
+      "Position": [6, 2.2, -7.1],
+      "Rotation": [-15, 0, 0],
+      "Scale": [1.6, 1.2, 0.1],
+      "ColorHex": "#00FFFF",
+      "Material": "Glow",
+      "Operation": "Union"
+    },
+    {
+      "Id": "cab1_marquee",
+      "Shape": "Box",
+      "Position": [6, 3.2, -7.5],
+      "Rotation": [0, 0, 0],
+      "Scale": [2, 0.5, 1],
+      "ColorHex": "#FFFF00",
+      "Material": "Glow",
+      "Operation": "Union"
+    },
+    {
+      "Id": "cab2_base",
+      "Shape": "Box",
+      "Position": [-6, 1.5, -8],
+      "Rotation": [0, 0, 0],
+      "Scale": [2, 3, 2],
+      "ColorHex": "#222222",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "cab2_screen",
+      "Shape": "Box",
+      "Position": [-6, 2.2, -7.1],
+      "Rotation": [-15, 0, 0],
+      "Scale": [1.6, 1.2, 0.1],
+      "ColorHex": "#FF0000",
+      "Material": "Glow",
+      "Operation": "Union"
+    },
+    {
+      "Id": "air_hockey_table",
+      "Shape": "Box",
+      "Position": [0, 1, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [4, 1.5, 8],
+      "ColorHex": "#DDDDDD",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "air_hockey_surface",
+      "Shape": "Box",
+      "Position": [0, 1.8, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [3.8, 0.1, 7.8],
+      "ColorHex": "#FFFFFF",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "hockey_puck",
+      "Shape": "Cylinder",
+      "Position": [0, 1.9, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.4, 0.1, 0.4],
+      "ColorHex": "#FF0000",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "stool_left",
+      "Shape": "Cylinder",
+      "Position": [6, 0.6, -5.5],
+      "Rotation": [0, 0, 0],
+      "Scale": [1, 1.2, 1],
+      "ColorHex": "#333333",
+      "Material": "Leather",
+      "Operation": "Union"
+    },
+    {
+      "Id": "overhead_light_1",
+      "Shape": "Torus",
+      "Position": [0, 8, 0],
+      "Rotation": [90, 0, 0],
+      "Scale": [5, 5, 0.2],
+      "ColorHex": "#00FF00",
+      "Material": "Glow",
+      "Operation": "Union"
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": 0.0,
+      "Action": "Move",
+      "TargetId": "hockey_puck",
+      "Value": [1, 1.9, 3],
+      "Duration": 1.0
+    },
+    {
+      "Time": 1.0,
+      "Action": "Move",
+      "TargetId": "hockey_puck",
+      "Value": [-1, 1.9, -3],
+      "Duration": 1.0
+    },
+    {
+      "Time": 0.0,
+      "Action": "Color",
+      "TargetId": "cab1_screen",
+      "Value": [0, 1, 1],
+      "Duration": 0.5
+    },
+    {
+      "Time": 0.5,
+      "Action": "Color",
+      "TargetId": "cab1_screen",
+      "Value": [0, 0.5, 1],
+      "Duration": 0.5
+    }
+  ]
+}
