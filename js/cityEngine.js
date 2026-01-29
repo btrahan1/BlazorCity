@@ -26,9 +26,11 @@ window.CityEngine = {
         }
     },
 
-    init: async function (containerId, dotNetRef) {
-        this.log("Initializing v8 with Interop...");
+    init: async function (containerId, dotNetRef, savedGridSize) {
+        this.log("Initializing v9 with Interop...");
         this.dotNetRef = dotNetRef;
+        if (savedGridSize) this.gridSize = savedGridSize;
+
         const container = document.getElementById(containerId);
         if (!container) return;
 
