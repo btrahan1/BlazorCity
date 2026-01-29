@@ -1,0 +1,65 @@
+{
+    "Name": "St. Genesis Medical Center",
+    "Parts": [
+        {
+            "Shape": "Box",
+            "Scale": [
+                8,
+                6,
+                8
+            ],
+            "Position": [
+                0,
+                3,
+                0
+            ],
+            "ColorHex": 16777215,
+            "Material": "White"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                2,
+                8,
+                2
+            ],
+            "Position": [
+                0,
+                4,
+                0
+            ],
+            "ColorHex": 4473924,
+            "Material": "Glass"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                3,
+                1,
+                1
+            ],
+            "Position": [
+                0,
+                5,
+                4.1
+            ],
+            "ColorHex": 16711680,
+            "Material": "Sign"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                1,
+                3,
+                1
+            ],
+            "Position": [
+                0,
+                5,
+                4.1
+            ],
+            "ColorHex": 16711680,
+            "Material": "Sign"
+        }
+    ]
+}

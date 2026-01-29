@@ -1,0 +1,77 @@
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<div class="toolbox">
+    <div class="toolbox-header">MCTwin Construction Co.</div>
+    <div class="toolbox-grid">
+        <button class="@GetClass("Road_Straight.json")" @onclick="@(() => Select("Road_Straight.json"))">🛣️ Road</button>
+        <button class="@GetClass("SuburbanHomeHiFi_20260128_181032.json")" @onclick="@(() => Select("SuburbanHomeHiFi_20260128_181032.json"))">🏠 Home</button>
+        <button class="@GetClass("ModernApartmentComplex_20260128_181155.json")" @onclick="@(() => Select("ModernApartmentComplex_20260128_181155.json"))">🏢 Apts</button>
+        <button class="@GetClass("GoldenArchesRestaurant_20260128_185724.json")" @onclick="@(() => Select("GoldenArchesRestaurant_20260128_185724.json"))">🍔 Food</button>
+        <button class="@GetClass("CornerConvenienceStore_20260128_184904.json")" @onclick="@(() => Select("CornerConvenienceStore_20260128_184904.json"))">🏪 Shop</button>
+        <button class="@GetClass("Retro_Neon_Arcade_20260128_185335.json")" @onclick="@(() => Select("Retro_Neon_Arcade_20260128_185335.json"))">🕹️ Arcade</button>
+        <button class="@GetClass("Modern_Atrium_Mall_20260128_185105.json")" @onclick="@(() => Select("Modern_Atrium_Mall_20260128_185105.json"))">🛍️ Mall</button>
+        <button class="@GetClass("ProvidentBank_20260128_185610.json")" @onclick="@(() => Select("ProvidentBank_20260128_185610.json"))">🏦 Bank</button>
+        <button class="@GetClass("GasStationHighFidelity_20260128_180931.json")" @onclick="@(() => Select("GasStationHighFidelity_20260128_180931.json"))">⛽ Gas</button>
+        <button class="@GetClass("St_Genesis_Medical_Center_20260128_180412.json")" @onclick="@(() => Select("St_Genesis_Medical_Center_20260128_180412.json"))">🏥 Medic</button>
+        <button class="@GetClass("MetropolitanPoliceStation_20260128_180800.json")" @onclick="@(() => Select("MetropolitanPoliceStation_20260128_180800.json"))">🚓 Police</button>
+        <button class="@GetClass("ModernFirestation_20260128_185519.json")" @onclick="@(() => Select("ModernFirestation_20260128_185519.json"))">🚒 Fire</button>
+        <button class="@GetClass(null)" @onclick="@(() => Select(null))">⛔ None</button>
+    </div>
+</div>
+
+<style>
+    .toolbox {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid #333;
+        border-radius: 8px;
+        padding: 10px;
+        pointer-events: auto;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .toolbox-header {
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 8px;
+        color: #333;
+    }
+    .toolbox-grid {
+        display: flex;
+        gap: 8px;
+    }
+    .toolbox button {
+        background: #eee;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 1.2em;
+    }
+    .toolbox button:hover {
+        background: #ddd;
+    }
+    .toolbox button.selected {
+        background: #4caf50;
+        color: white;
+        border-color: #2e7d32;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+</style>
+
+@code {
+    private string selectedBuilding = null;
+
+    private string GetClass(string building) => selectedBuilding == building ? "selected" : "";
+
+    private async Task Select(string building)
+    {
+        selectedBuilding = building;
+        await JS.InvokeVoidAsync("CityEngine.setSelectedBuilding", building);
+    }
+}

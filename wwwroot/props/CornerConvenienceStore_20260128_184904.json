@@ -1,0 +1,183 @@
+{
+  "Name": "CornerConvenienceStore",
+  "Type": "Procedural",
+  "Parts": [
+    {
+      "Id": "asphalt_lot",
+      "Shape": "Box",
+      "Position": [0, -0.1, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [40, 0.2, 40],
+      "ColorHex": "#2A2A2A",
+      "Material": "Rubber",
+      "Operation": "Union"
+    },
+    {
+      "Id": "sidewalk_curb",
+      "Shape": "Box",
+      "Position": [0, 0.1, 4],
+      "Rotation": [0, 0, 0],
+      "Scale": [22, 0.4, 6],
+      "ColorHex": "#999999",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "store_main_shell",
+      "Shape": "Box",
+      "Position": [0, 2.5, -2],
+      "Rotation": [0, 0, 0],
+      "Scale": [18, 5, 12],
+      "ColorHex": "#FDFDFD",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "roof_slab",
+      "Shape": "Box",
+      "Position": [0, 5.2, -2],
+      "Rotation": [0, 0, 0],
+      "Scale": [19, 0.6, 13],
+      "ColorHex": "#444444",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "brand_frieze",
+      "Shape": "Box",
+      "Position": [0, 4.4, 4.05],
+      "Rotation": [0, 0, 0],
+      "Scale": [18.2, 0.8, 0.2],
+      "ColorHex": "#007A33",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "window_left",
+      "Shape": "Box",
+      "Position": [5, 2.2, 4.01],
+      "Rotation": [0, 0, 0],
+      "Scale": [7, 3.5, 0.1],
+      "ColorHex": "#AADDFF",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "window_right",
+      "Shape": "Box",
+      "Position": [-5, 2.2, 4.01],
+      "Rotation": [0, 0, 0],
+      "Scale": [7, 3.5, 0.1],
+      "ColorHex": "#AADDFF",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "glass_door",
+      "Shape": "Box",
+      "Position": [0, 2, 4.01],
+      "Rotation": [0, 0, 0],
+      "Scale": [2.2, 4, 0.1],
+      "ColorHex": "#333333",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "ice_machine",
+      "Shape": "Box",
+      "Position": [11, 1, 4.5],
+      "Rotation": [0, 0, 0],
+      "Scale": [2, 2, 1.5],
+      "ColorHex": "#FFFFFF",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "ice_text_box",
+      "Shape": "Box",
+      "ParentId": "ice_machine",
+      "Position": [11, 1.6, 5.3],
+      "Rotation": [0, 0, 0],
+      "Scale": [1.4, 0.4, 0.1],
+      "ColorHex": "#0000FF",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "bollard_1",
+      "Shape": "Cylinder",
+      "Position": [8, 0.6, 7.5],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.4, 1.2, 0.4],
+      "ColorHex": "#FFD700",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "bollard_2",
+      "Shape": "Cylinder",
+      "Position": [-8, 0.6, 7.5],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.4, 1.2, 0.4],
+      "ColorHex": "#FFD700",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "interior_light_1",
+      "Shape": "Box",
+      "Position": [0, 4.8, -2],
+      "Rotation": [0, 0, 0],
+      "Scale": [10, 0.1, 0.5],
+      "ColorHex": "#FFFFFF",
+      "Material": "Glow",
+      "Operation": "Union"
+    },
+    {
+      "Id": "parking_stripe_1",
+      "Shape": "Box",
+      "Position": [12, 0.05, 12],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.2, 0.01, 8],
+      "ColorHex": "#FFFFFF",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "parking_stripe_2",
+      "Shape": "Box",
+      "Position": [15, 0.05, 12],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.2, 0.01, 8],
+      "ColorHex": "#FFFFFF",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "roof_hvac",
+      "Shape": "Box",
+      "Position": [-3, 5.8, -4],
+      "Rotation": [0, 0, 0],
+      "Scale": [2, 1, 2],
+      "ColorHex": "#888888",
+      "Material": "Metal",
+      "Operation": "Union"
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": 0.0,
+      "Action": "Color",
+      "TargetId": "interior_light_1",
+      "Value": [1, 1, 1],
+      "Duration": 0.5
+    },
+    {
+      "Time": 0.5,
+      "Action": "Color",
+      "TargetId": "interior_light_1",
+      "Value": [0.8, 0.8, 1],
+      "Duration": 0.5
+    }
+  ]
+}

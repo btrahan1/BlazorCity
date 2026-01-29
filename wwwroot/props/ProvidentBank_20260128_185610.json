@@ -1,0 +1,192 @@
+{
+"Name": "ProvidentBank",
+"Type": "Procedural",
+"Parts": [
+{
+"Id": "foundation_slab",
+"Shape": "Box",
+"Position": [0, 0.1, 0],
+"Rotation": [0, 0, 0],
+"Scale": [14, 0.2, 10],
+"ColorHex": "#444444",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "main_structure",
+"Shape": "Box",
+"Position": [0, 2.5, -0.5],
+"Rotation": [0, 0, 0],
+"Scale": [12, 5, 8],
+"ColorHex": "#D3D3D3",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "column_1",
+"Shape": "Cylinder",
+"Position": [5, 2.5, 4],
+"Rotation": [0, 0, 0],
+"Scale": [0.6, 5, 0.6],
+"ColorHex": "#E0E0E0",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "column_2",
+"Shape": "Cylinder",
+"Position": [2, 2.5, 4],
+"Rotation": [0, 0, 0],
+"Scale": [0.6, 5, 0.6],
+"ColorHex": "#E0E0E0",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "column_3",
+"Shape": "Cylinder",
+"Position": [-2, 2.5, 4],
+"Rotation": [0, 0, 0],
+"Scale": [0.6, 5, 0.6],
+"ColorHex": "#E0E0E0",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "column_4",
+"Shape": "Cylinder",
+"Position": [-5, 2.5, 4],
+"Rotation": [0, 0, 0],
+"Scale": [0.6, 5, 0.6],
+"ColorHex": "#E0E0E0",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "roof_portico",
+"Shape": "Box",
+"Position": [0, 5.2, 3.8],
+"Rotation": [0, 0, 0],
+"Scale": [13, 0.6, 2],
+"ColorHex": "#B0B0B0",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "pediment",
+"Shape": "Cone",
+"Position": [0, 6.5, 3.8],
+"Rotation": [0, 0, 0],
+"Scale": [13, 2, 2],
+"ColorHex": "#D3D3D3",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "glass_entry_left",
+"Shape": "Box",
+"Position": [0.75, 1.75, 3.5],
+"Rotation": [0, 0, 0],
+"Scale": [1.4, 3.5, 0.1],
+"ColorHex": "#88CCFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "glass_entry_right",
+"Shape": "Box",
+"Position": [-0.75, 1.75, 3.5],
+"Rotation": [0, 0, 0],
+"Scale": [1.4, 3.5, 0.1],
+"ColorHex": "#88CCFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "atm_kiosk",
+"Shape": "Box",
+"Position": [4, 1.5, 3.6],
+"Rotation": [0, 0, 0],
+"Scale": [1, 2, 0.5],
+"ColorHex": "#222222",
+"Material": "Plastic",
+"Operation": "Union"
+},
+{
+"Id": "atm_screen",
+"ParentId": "atm_kiosk",
+"Shape": "Box",
+"Position": [4, 2, 3.86],
+"Rotation": [0, 0, 0],
+"Scale": [0.6, 0.4, 0.05],
+"ColorHex": "#00FF44",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "vault_door",
+"Shape": "Cylinder",
+"Position": [0, 2.5, -4],
+"Rotation": [0, 0, 90],
+"Scale": [3, 0.5, 3],
+"ColorHex": "#707070",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "vault_handle",
+"ParentId": "vault_door",
+"Shape": "Torus",
+"Position": [0, 2.5, -4.3],
+"Rotation": [0, 0, 0],
+"Scale": [1, 1, 0.2],
+"ColorHex": "#FFD700",
+"Material": "Metal",
+"Operation": "Union"
+}
+],
+"Timeline": [
+{
+"Time": 0.0,
+"Action": "Rotate",
+"TargetId": "glass_entry_left",
+"Value": [0, 0, 0],
+"Duration": 0.0
+},
+{
+"Time": 1.0,
+"Action": "Rotate",
+"TargetId": "glass_entry_left",
+"Value": [0, 90, 0],
+"Duration": 1.5
+},
+{
+"Time": 1.0,
+"Action": "Rotate",
+"TargetId": "glass_entry_right",
+"Value": [0, -90, 0],
+"Duration": 1.5
+},
+{
+"Time": 2.5,
+"Action": "Rotate",
+"TargetId": "vault_door",
+"Value": [0, -45, 90],
+"Duration": 2.0
+},
+{
+"Time": 0.0,
+"Action": "Color",
+"TargetId": "atm_screen",
+"Value": [0, 0.5, 0.1],
+"Duration": 1.0
+},
+{
+"Time": 1.0,
+"Action": "Color",
+"TargetId": "atm_screen",
+"Value": [0, 1.0, 0.2],
+"Duration": 0.5
+}
+]
+}

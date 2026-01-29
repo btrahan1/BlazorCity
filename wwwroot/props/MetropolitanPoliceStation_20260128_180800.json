@@ -1,0 +1,80 @@
+{
+    "Name": "Metropolitan Police Station",
+    "Parts": [
+        {
+            "Shape": "Box",
+            "Scale": [
+                9,
+                6,
+                6
+            ],
+            "Position": [
+                0,
+                3,
+                0
+            ],
+            "ColorHex": 2636109,
+            "Material": "Concrete"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                8,
+                0.5,
+                8
+            ],
+            "Position": [
+                0,
+                6.5,
+                0
+            ],
+            "ColorHex": 16777215,
+            "Material": "Concrete"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                1,
+                2,
+                1
+            ],
+            "Position": [
+                3,
+                7.5,
+                3
+            ],
+            "ColorHex": 16711680,
+            "Material": "Glow"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                1,
+                2,
+                1
+            ],
+            "Position": [
+                -3,
+                7.5,
+                3
+            ],
+            "ColorHex": 255,
+            "Material": "Glow"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                2,
+                1,
+                0.5
+            ],
+            "Position": [
+                0,
+                4,
+                3.1
+            ],
+            "ColorHex": 255,
+            "Material": "Sign"
+        }
+    ]
+}

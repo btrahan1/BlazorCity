@@ -1,0 +1,80 @@
+{
+    "Name": "Road Straight",
+    "Parts": [
+        {
+            "Shape": "Box",
+            "Scale": [
+                10,
+                0.2,
+                10
+            ],
+            "Position": [
+                0,
+                0.1,
+                0
+            ],
+            "ColorHex": 3355443,
+            "Material": "Asphalt"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                1,
+                0.25,
+                4
+            ],
+            "Position": [
+                0,
+                0.1,
+                -3
+            ],
+            "ColorHex": 16776960,
+            "Material": "Paint"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                1,
+                0.25,
+                4
+            ],
+            "Position": [
+                0,
+                0.1,
+                3
+            ],
+            "ColorHex": 16776960,
+            "Material": "Paint"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                10,
+                0.3,
+                1
+            ],
+            "Position": [
+                0,
+                0.15,
+                4.5
+            ],
+            "ColorHex": 8947848,
+            "Material": "Sidewalk"
+        },
+        {
+            "Shape": "Box",
+            "Scale": [
+                10,
+                0.3,
+                1
+            ],
+            "Position": [
+                0,
+                0.15,
+                -4.5
+            ],
+            "ColorHex": 8947848,
+            "Material": "Sidewalk"
+        }
+    ]
+}

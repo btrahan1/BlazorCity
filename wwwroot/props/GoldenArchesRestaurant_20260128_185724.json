@@ -1,0 +1,168 @@
+{
+"Name": "GoldenArchesRestaurant",
+"Type": "Procedural",
+"Parts": [
+{
+"Id": "asphalt_base",
+"Shape": "Box",
+"Position": [0, -0.05, 0],
+"Rotation": [0, 0, 0],
+"Scale": [20, 0.1, 18],
+"ColorHex": "#222222",
+"Material": "Rubber",
+"Operation": "Union"
+},
+{
+"Id": "main_block",
+"Shape": "Box",
+"Position": [0, 2, 0],
+"Rotation": [0, 0, 0],
+"Scale": [10, 4, 8],
+"ColorHex": "#DA291C",
+"Material": "Plastic",
+"Operation": "Union"
+},
+{
+"Id": "roof_trim",
+"Shape": "Box",
+"Position": [0, 4.1, 0],
+"Rotation": [0, 0, 0],
+"Scale": [10.5, 0.6, 8.5],
+"ColorHex": "#FFC72C",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "front_window_l",
+"Shape": "Box",
+"Position": [2.5, 1.8, 4],
+"Rotation": [0, 0, 0],
+"Scale": [3.5, 2.5, 0.1],
+"ColorHex": "#AADDFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "front_window_r",
+"Shape": "Box",
+"Position": [-2.5, 1.8, 4],
+"Rotation": [0, 0, 0],
+"Scale": [3.5, 2.5, 0.1],
+"ColorHex": "#AADDFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "entry_door",
+"Shape": "Box",
+"Position": [0, 1.5, 4.05],
+"Rotation": [0, 0, 0],
+"Scale": [1.2, 3, 0.1],
+"ColorHex": "#FFFFFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "drive_thru_window",
+"Shape": "Box",
+"Position": [5, 2, 0],
+"Rotation": [0, 90, 0],
+"Scale": [1.5, 1.5, 0.1],
+"ColorHex": "#AADDFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "arch_left",
+"Shape": "Torus",
+"Position": [0.6, 4.8, 4.2],
+"Rotation": [90, 0, 0],
+"Scale": [0.8, 0.8, 0.2],
+"ColorHex": "#FFC72C",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "arch_right",
+"Shape": "Torus",
+"Position": [-0.6, 4.8, 4.2],
+"Rotation": [90, 0, 0],
+"Scale": [0.8, 0.8, 0.2],
+"ColorHex": "#FFC72C",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "sign_pole",
+"Shape": "Cylinder",
+"Position": [8, 4, 6],
+"Rotation": [0, 0, 0],
+"Scale": [0.3, 8, 0.3],
+"ColorHex": "#555555",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "sign_board",
+"Shape": "Box",
+"Position": [8, 8.5, 6],
+"Rotation": [0, 0, 0],
+"Scale": [2.5, 2, 0.6],
+"ColorHex": "#DA291C",
+"Material": "Plastic",
+"Operation": "Union"
+},
+{
+"Id": "sign_m_l",
+"ParentId": "sign_board",
+"Shape": "Torus",
+"Position": [7.6, 8.5, 6.35],
+"Rotation": [90, 0, 0],
+"Scale": [0.5, 0.5, 0.15],
+"ColorHex": "#FFC72C",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "sign_m_r",
+"ParentId": "sign_board",
+"Shape": "Torus",
+"Position": [8.4, 8.5, 6.35],
+"Rotation": [90, 0, 0],
+"Scale": [0.5, 0.5, 0.15],
+"ColorHex": "#FFC72C",
+"Material": "Glow",
+"Operation": "Union"
+}
+],
+"Timeline": [
+{
+"Time": 0.0,
+"Action": "Rotate",
+"TargetId": "sign_board",
+"Value": [0, 0, 0],
+"Duration": 0.0
+},
+{
+"Time": 1.0,
+"Action": "Rotate",
+"TargetId": "sign_board",
+"Value": [0, 360, 0],
+"Duration": 10.0
+},
+{
+"Time": 0.5,
+"Action": "Color",
+"TargetId": "arch_left",
+"Value": [1, 0.9, 0],
+"Duration": 1.0
+},
+{
+"Time": 2.0,
+"Action": "Move",
+"TargetId": "entry_door",
+"Value": [1, 1.5, 4.05],
+"Duration": 1.5
+}
+]
+}

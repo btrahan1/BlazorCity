@@ -1,0 +1,168 @@
+{
+"Name": "St_Genesis_Medical_Center",
+"Type": "Procedural",
+"Parts": [
+{
+"Id": "main_block",
+"ParentId": null,
+"Shape": "Box",
+"Position": [0, 10, 0],
+"Rotation": [0, 0, 0],
+"Scale": [40, 20, 30],
+"ColorHex": "#F0F0F0",
+"Material": "Plastic",
+"Operation": "Union"
+},
+{
+"Id": "east_wing",
+"ParentId": "main_block",
+"Shape": "Box",
+"Position": [25, 7.5, 0],
+"Rotation": [0, 0, 0],
+"Scale": [15, 15, 20],
+"ColorHex": "#E8E8E8",
+"Material": "Plastic",
+"Operation": "Union"
+},
+{
+"Id": "roof_plateau",
+"ParentId": "main_block",
+"Shape": "Box",
+"Position": [0, 20.2, 0],
+"Rotation": [0, 0, 0],
+"Scale": [41, 0.5, 31],
+"ColorHex": "#333333",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "helipad_base",
+"ParentId": "roof_plateau",
+"Shape": "Cylinder",
+"Position": [-10, 20.5, 5],
+"Rotation": [0, 0, 0],
+"Scale": [10, 0.2, 10],
+"ColorHex": "#444444",
+"Material": "Rubber",
+"Operation": "Union"
+},
+{
+"Id": "helipad_h_stem",
+"ParentId": "helipad_base",
+"Shape": "Box",
+"Position": [-10, 20.7, 5],
+"Rotation": [0, 90, 0],
+"Scale": [4, 0.1, 0.8],
+"ColorHex": "#FFFFFF",
+"Material": "Plastic",
+"Operation": "Union"
+},
+{
+"Id": "cross_horizontal",
+"ParentId": "main_block",
+"Shape": "Box",
+"Position": [0, 14, 15.1],
+"Rotation": [0, 0, 0],
+"Scale": [8, 2, 0.5],
+"ColorHex": "#FF0000",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "cross_vertical",
+"ParentId": "main_block",
+"Shape": "Box",
+"Position": [0, 14, 15.1],
+"Rotation": [0, 0, 0],
+"Scale": [2, 8, 0.5],
+"ColorHex": "#FF0000",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "window_strip_lower",
+"ParentId": "main_block",
+"Shape": "Box",
+"Position": [0, 6, 15.1],
+"Rotation": [0, 0, 0],
+"Scale": [36, 2, 0.2],
+"ColorHex": "#88CCFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "window_strip_upper",
+"ParentId": "main_block",
+"Shape": "Box",
+"Position": [0, 17, 15.1],
+"Rotation": [0, 0, 0],
+"Scale": [36, 2, 0.2],
+"ColorHex": "#88CCFF",
+"Material": "Glass",
+"Operation": "Union"
+},
+{
+"Id": "er_entrance_canopy",
+"ParentId": "east_wing",
+"Shape": "Box",
+"Position": [25, 4, 13],
+"Rotation": [0, 0, 0],
+"Scale": [12, 0.5, 6],
+"ColorHex": "#CCCCCC",
+"Material": "Metal",
+"Operation": "Union"
+},
+{
+"Id": "er_sign",
+"ParentId": "er_entrance_canopy",
+"Shape": "Box",
+"Position": [25, 5, 16.1],
+"Rotation": [0, 0, 0],
+"Scale": [4, 1, 0.1],
+"ColorHex": "#FF0000",
+"Material": "Glow",
+"Operation": "Union"
+},
+{
+"Id": "elevator_shaft",
+"ParentId": "main_block",
+"Shape": "Box",
+"Position": [-18, 12, 0],
+"Rotation": [0, 0, 0],
+"Scale": [4, 24, 4],
+"ColorHex": "#A0A0A0",
+"Material": "Metal",
+"Operation": "Union"
+}
+],
+"Timeline": [
+{
+"Time": 0.0,
+"Action": "Color",
+"TargetId": "cross_horizontal",
+"Value": [1, 0, 0],
+"Duration": 1.0
+},
+{
+"Time": 1.0,
+"Action": "Color",
+"TargetId": "cross_horizontal",
+"Value": [0.5, 0, 0],
+"Duration": 1.0
+},
+{
+"Time": 0.0,
+"Action": "Color",
+"TargetId": "cross_vertical",
+"Value": [1, 0, 0],
+"Duration": 1.0
+},
+{
+"Time": 1.0,
+"Action": "Color",
+"TargetId": "cross_vertical",
+"Value": [0.5, 0, 0],
+"Duration": 1.0
+}
+]
+}

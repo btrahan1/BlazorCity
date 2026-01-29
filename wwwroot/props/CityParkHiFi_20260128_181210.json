@@ -1,0 +1,189 @@
+{
+  "Name": "CityParkHiFi",
+  "Type": "Procedural",
+  "Parts": [
+    {
+      "Id": "park_lawn",
+      "Shape": "Box",
+      "Position": [0, -0.1, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [100, 0.2, 100],
+      "ColorHex": "#4CAF50",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "central_path_z",
+      "Shape": "Box",
+      "Position": [0, 0.01, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [6, 0.1, 100],
+      "ColorHex": "#9E9E9E",
+      "Material": "Rubber",
+      "Operation": "Union"
+    },
+    {
+      "Id": "central_path_x",
+      "Shape": "Box",
+      "Position": [0, 0.01, 0],
+      "Rotation": [0, 90, 0],
+      "Scale": [6, 0.1, 100],
+      "ColorHex": "#9E9E9E",
+      "Material": "Rubber",
+      "Operation": "Union"
+    },
+    {
+      "Id": "fountain_basin",
+      "Shape": "Cylinder",
+      "Position": [0, 0.5, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [12, 1, 12],
+      "ColorHex": "#BDBDBD",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "fountain_water",
+      "Shape": "Cylinder",
+      "Position": [0, 0.8, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [10, 0.5, 10],
+      "ColorHex": "#29B6F6",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "fountain_spout",
+      "Shape": "Sphere",
+      "Position": [0, 1.5, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [1.5, 2.5, 1.5],
+      "ColorHex": "#E1F5FE",
+      "Material": "Glow",
+      "Operation": "Union"
+    },
+    {
+      "Id": "tree_trunk_1",
+      "Shape": "Cylinder",
+      "Position": [15, 4, 15],
+      "Rotation": [0, 0, 0],
+      "Scale": [1, 8, 1],
+      "ColorHex": "#5D4037",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "tree_foliage_1",
+      "Shape": "Sphere",
+      "Position": [15, 10, 15],
+      "Rotation": [0, 0, 0],
+      "Scale": [8, 8, 8],
+      "ColorHex": "#2E7D32",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "tree_trunk_2",
+      "Shape": "Cylinder",
+      "Position": [-15, 4, -15],
+      "Rotation": [0, 0, 0],
+      "Scale": [1, 8, 1],
+      "ColorHex": "#5D4037",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "tree_foliage_2",
+      "Shape": "Sphere",
+      "Position": [-15, 10, -15],
+      "Rotation": [0, 0, 0],
+      "Scale": [8, 8, 8],
+      "ColorHex": "#2E7D32",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "bench_seat",
+      "Shape": "Box",
+      "Position": [10, 0.8, 5],
+      "Rotation": [0, 0, 0],
+      "Scale": [4, 0.3, 2],
+      "ColorHex": "#8D6E63",
+      "Material": "Leather",
+      "Operation": "Union"
+    },
+    {
+      "Id": "bench_back",
+      "Shape": "Box",
+      "Position": [10, 1.5, 6],
+      "Rotation": [15, 0, 0],
+      "Scale": [4, 1.5, 0.2],
+      "ColorHex": "#8D6E63",
+      "Material": "Leather",
+      "Operation": "Union"
+    },
+    {
+      "Id": "bench_leg_l",
+      "Shape": "Cylinder",
+      "Position": [11.8, 0.4, 5],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.2, 0.8, 0.2],
+      "ColorHex": "#212121",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "bench_leg_r",
+      "Shape": "Cylinder",
+      "Position": [8.2, 0.4, 5],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.2, 0.8, 0.2],
+      "ColorHex": "#212121",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "lamp_post",
+      "Shape": "Cylinder",
+      "Position": [5, 4.5, 5],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.3, 9, 0.3],
+      "ColorHex": "#263238",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "lamp_head",
+      "Shape": "Sphere",
+      "Position": [5, 9, 5],
+      "Rotation": [0, 0, 0],
+      "Scale": [1.2, 1.2, 1.2],
+      "ColorHex": "#FFF59D",
+      "Material": "Glow",
+      "Operation": "Union"
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": 0.0,
+      "Action": "Scale",
+      "TargetId": "fountain_spout",
+      "Value": [1.5, 2.5, 1.5],
+      "Duration": 1.0
+    },
+    {
+      "Time": 1.0,
+      "Action": "Scale",
+      "TargetId": "fountain_spout",
+      "Value": [1.7, 3.2, 1.7],
+      "Duration": 1.0
+    },
+    {
+      "Time": 0.0,
+      "Action": "Color",
+      "TargetId": "lamp_head",
+      "Value": [1, 1, 0.6],
+      "Duration": 2.0
+    }
+  ]
+}

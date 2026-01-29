@@ -1,0 +1,67 @@
+﻿@inherits LayoutComponentBase
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<div id="city-container"></div>
+
+@inject BlazorCity.Services.CityState CityState
+@inject BlazorCity.Services.EconomyInterop EconomyInterop
+@inject IJSRuntime JS
+
+<div class="ui-layer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+    <!-- HUD -->
+    <div class="hud-top">
+        <div class="hud-item">💰 §@CityState.Funds.ToString("N0")</div>
+        <div class="hud-item" style="color: @(CityState.NetIncome >= 0 ? "#4caf50" : "#f44336")">
+            (@(CityState.NetIncome >= 0 ? "+" : "")§@CityState.NetIncome.ToString("N0")/mo)
+        </div>
+        <div class="hud-item">👥 @CityState.Population.ToString("N0")</div>
+        <div class="hud-item">📅 @CityState.GameTime.ToString("MMM d, yyyy")</div>
+    </div>
+
+    <BlazorCity.Pages.Toolbox />
+    @Body
+</div>
+
+<style>
+    /* ... existing styles ... */
+    .hud-top {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        display: flex;
+        gap: 20px;
+        font-family: 'Segoe UI', sans-serif;
+        font-weight: bold;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        pointer-events: auto; /* Allow tooltips if we add them */
+    }
+    .hud-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+</style>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var dotNetRef = DotNetObjectReference.Create(EconomyInterop);
+            await JS.InvokeVoidAsync("CityEngine.init", "city-container", dotNetRef);
+            
+            CityState.OnChange += StateHasChanged;
+        }
+    }
+
+    public void Dispose()
+    {
+        CityState.OnChange -= StateHasChanged;
+    }
+}

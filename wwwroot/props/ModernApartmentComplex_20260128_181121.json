@@ -1,0 +1,185 @@
+{
+  "Name": "ModernApartmentComplex",
+  "Type": "Procedural",
+  "Parts": [
+    {
+      "Id": "site_foundation",
+      "Shape": "Box",
+      "Position": [0, -0.1, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [40, 0.2, 30],
+      "ColorHex": "#333333",
+      "Material": "Rubber",
+      "Operation": "Union"
+    },
+    {
+      "Id": "main_tower",
+      "Shape": "Box",
+      "Position": [0, 15, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [20, 30, 12],
+      "ColorHex": "#D0D0D0",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "lobby_glass",
+      "Shape": "Box",
+      "Position": [0, 2, 6.1],
+      "Rotation": [0, 0, 0],
+      "Scale": [12, 4, 0.5],
+      "ColorHex": "#AADDFF",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "window_column_left",
+      "Shape": "Box",
+      "Position": [6, 17, 6.05],
+      "Rotation": [0, 0, 0],
+      "Scale": [5, 22, 0.1],
+      "ColorHex": "#223344",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "window_column_right",
+      "Shape": "Box",
+      "Position": [-6, 17, 6.05],
+      "Rotation": [0, 0, 0],
+      "Scale": [5, 22, 0.1],
+      "ColorHex": "#223344",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "balcony_1_base",
+      "Shape": "Box",
+      "Position": [6, 8, 7.2],
+      "Rotation": [0, 0, 0],
+      "Scale": [5, 0.2, 2.5],
+      "ColorHex": "#888888",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "balcony_1_rail",
+      "Shape": "Box",
+      "ParentId": "balcony_1_base",
+      "Position": [6, 8.5, 8.4],
+      "Rotation": [0, 0, 0],
+      "Scale": [5, 1, 0.1],
+      "ColorHex": "#EEEEEE",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "balcony_2_base",
+      "Shape": "Box",
+      "Position": [6, 16, 7.2],
+      "Rotation": [0, 0, 0],
+      "Scale": [5, 0.2, 2.5],
+      "ColorHex": "#888888",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "balcony_2_rail",
+      "Shape": "Box",
+      "ParentId": "balcony_2_base",
+      "Position": [6, 16.5, 8.4],
+      "Rotation": [0, 0, 0],
+      "Scale": [5, 1, 0.1],
+      "ColorHex": "#EEEEEE",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "balcony_3_base",
+      "Shape": "Box",
+      "Position": [6, 24, 7.2],
+      "Rotation": [0, 0, 0],
+      "Scale": [5, 0.2, 2.5],
+      "ColorHex": "#888888",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "balcony_3_rail",
+      "Shape": "Box",
+      "ParentId": "balcony_3_base",
+      "Position": [6, 24.5, 8.4],
+      "Rotation": [0, 0, 0],
+      "Scale": [5, 1, 0.1],
+      "ColorHex": "#EEEEEE",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "roof_access",
+      "Shape": "Box",
+      "Position": [0, 31, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [6, 2, 6],
+      "ColorHex": "#AAAAAA",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "hvac_vent_1",
+      "Shape": "Cylinder",
+      "Position": [5, 30.5, -3],
+      "Rotation": [0, 0, 0],
+      "Scale": [1.5, 1.5, 1.5],
+      "ColorHex": "#555555",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "hvac_vent_2",
+      "Shape": "Cylinder",
+      "Position": [7, 30.5, -3],
+      "Rotation": [0, 0, 0],
+      "Scale": [1.5, 1.5, 1.5],
+      "ColorHex": "#555555",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "street_lamp_post",
+      "Shape": "Cylinder",
+      "Position": [16, 3, 12],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.2, 6, 0.2],
+      "ColorHex": "#222222",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "street_lamp_bulb",
+      "Shape": "Sphere",
+      "Position": [16, 6.2, 12],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.6, 0.6, 0.6],
+      "ColorHex": "#FFFFCC",
+      "Material": "Glow",
+      "Operation": "Union"
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": 0.0,
+      "Action": "Color",
+      "TargetId": "street_lamp_bulb",
+      "Value": [1.0, 1.0, 0.8],
+      "Duration": 1.0
+    },
+    {
+      "Time": 1.0,
+      "Action": "Scale",
+      "TargetId": "lobby_glass",
+      "Value": [12.1, 4.1, 0.6],
+      "Duration": 2.0
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "Name": "SuburbanHomeHiFi",
+  "Type": "Procedural",
+  "Parts": [
+    {
+      "Id": "lawn",
+      "Shape": "Box",
+      "Position": [0, -0.1, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [50, 0.2, 50],
+      "ColorHex": "#3B7A32",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "driveway",
+      "Shape": "Box",
+      "Position": [-9, 0.01, 10],
+      "Rotation": [0, 0, 0],
+      "Scale": [8, 0.05, 20],
+      "ColorHex": "#555555",
+      "Material": "Rubber",
+      "Operation": "Union"
+    },
+    {
+      "Id": "house_main_body",
+      "Shape": "Box",
+      "Position": [0, 2.5, 0],
+      "Rotation": [0, 0, 0],
+      "Scale": [14, 5, 10],
+      "ColorHex": "#EEDDCC",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "garage_wing",
+      "Shape": "Box",
+      "Position": [-9, 2, 1],
+      "Rotation": [0, 0, 0],
+      "Scale": [10, 4, 8],
+      "ColorHex": "#EEDDCC",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "roof_left",
+      "Shape": "Box",
+      "Position": [3.8, 6.2, 0],
+      "Rotation": [0, 0, 35],
+      "Scale": [9.5, 0.5, 11],
+      "ColorHex": "#333333",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "roof_right",
+      "Shape": "Box",
+      "Position": [-3.8, 6.2, 0],
+      "Rotation": [0, 0, -35],
+      "Scale": [9.5, 0.5, 11],
+      "ColorHex": "#333333",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "garage_roof",
+      "Shape": "Box",
+      "Position": [-9, 4.5, 1],
+      "Rotation": [10, 0, 0],
+      "Scale": [10.2, 0.5, 8.5],
+      "ColorHex": "#333333",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "front_door",
+      "Shape": "Box",
+      "Position": [2, 1.5, 5.01],
+      "Rotation": [0, 0, 0],
+      "Scale": [1.8, 3, 0.1],
+      "ColorHex": "#5C4033",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "garage_door",
+      "Shape": "Box",
+      "Position": [-9, 1.7, 5.01],
+      "Rotation": [0, 0, 0],
+      "Scale": [7, 3.2, 0.1],
+      "ColorHex": "#FFFFFF",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "window_main_floor",
+      "Shape": "Box",
+      "Position": [7, 2, 5.01],
+      "Rotation": [0, 0, 0],
+      "Scale": [4, 2.5, 0.15],
+      "ColorHex": "#AADDFF",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "window_second_floor",
+      "Shape": "Box",
+      "Position": [0, 4.5, 5.01],
+      "Rotation": [0, 0, 0],
+      "Scale": [2.5, 1.8, 0.15],
+      "ColorHex": "#AADDFF",
+      "Material": "Glass",
+      "Operation": "Union"
+    },
+    {
+      "Id": "chimney",
+      "Shape": "Box",
+      "Position": [5.5, 6.5, -2],
+      "Rotation": [0, 0, 0],
+      "Scale": [1.5, 4, 1.5],
+      "ColorHex": "#8B4513",
+      "Material": "Plastic",
+      "Operation": "Union"
+    },
+    {
+      "Id": "porch_light",
+      "Shape": "Sphere",
+      "Position": [3.8, 3, 5.2],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.3, 0.3, 0.3],
+      "ColorHex": "#FFFFCC",
+      "Material": "Glow",
+      "Operation": "Union"
+    },
+    {
+      "Id": "mailbox_post",
+      "Shape": "Cylinder",
+      "Position": [12, 1, 15],
+      "Rotation": [0, 0, 0],
+      "Scale": [0.2, 2, 0.2],
+      "ColorHex": "#444444",
+      "Material": "Metal",
+      "Operation": "Union"
+    },
+    {
+      "Id": "mailbox_box",
+      "Shape": "Capsule",
+      "Position": [12, 2.1, 15],
+      "Rotation": [90, 0, 0],
+      "Scale": [0.5, 0.8, 0.5],
+      "ColorHex": "#AA2222",
+      "Material": "Metal",
+      "Operation": "Union"
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": 0.0,
+      "Action": "Color",
+      "TargetId": "porch_light",
+      "Value": [1, 1, 0.8],
+      "Duration": 1.0
+    }
+  ]
+}
